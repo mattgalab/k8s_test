@@ -39,3 +39,7 @@ scrape_configs:
     scrape_interval: 15s
     static_configs:
       - targets: [loki:3100]
+
+  - job_name: 'windows'
+    static_configs:
+      - targets: [ '192.168.0.214:9182' ] # replace with the IP address of the Windows exporter
