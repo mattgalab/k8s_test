@@ -8,8 +8,8 @@ services:
     networks:
       - monitoring-net
     volumes:
-      - ./prometheus.yml:/opt/bitnami/prometheus/conf/prometheus.yml
-      - ./prometheus:/opt/bitnami/data
+      - ./prometheus.yml:/opt/prometheus/conf/prometheus.yml
+      - ./prometheus:/opt/data
 
   grafana:
     image: grafana/grafana:latest
@@ -42,6 +42,7 @@ services:
     ports:
       # debug dashboard http://localhost:9080/service-discovery
       - 9080:9080
+
     volumes:
       - ./promtail-config.yaml:/mnt/config/promtail-config.yaml
       - ./promtail/log:/var/log
@@ -53,6 +54,6 @@ services:
     networks:
       - monitoring-net
 
-name: monitoring
+
 networks:
   monitoring-net:
